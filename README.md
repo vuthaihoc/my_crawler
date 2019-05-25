@@ -56,7 +56,7 @@ Some demos about using spatie/crawler to crawl a website
  - YouTube
 ```
 
-3. demo3 : I customized some class to get more feature. 
+4. demo4 : I customized some class to get more feature. 
 I can ask crawler to run follow my path, instead of crawling all links on the page.
 
 - Define the path: in `demo4/src/LinkAdder.php`
@@ -82,7 +82,7 @@ protected $rules = [
 - At here, `root` mean the url is passed when you initialize `Crawler`, 
   in this demo is [https://www.epubbooks.com/](https://www.epubbooks.com/)
 
-- run : From project root folder `php demo3/run.php`
+- run : From project root folder `php demo4/run.php`
 - output : Something like below
 
 ```
@@ -102,7 +102,7 @@ protected $rules = [
 "\tThe Last Egyptian by L. Frank Baum"
 ```
 
-4. demo4 : same as demo3 but i customized a `CrawlQueue` with a db system. At here is `sqlite`.
+5. demo5 : same as demo3 but i customized a `CrawlQueue` with a db system. At here is `sqlite`.
 
 - Before run you should run `touch demo5/queue.db` to init demo db.
 - run : From project root folder `php demo4/run.php` and `Ctrl +c` before crawler stop, and then run `php demo4/run.php` 
