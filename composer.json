@@ -1,0 +1,30 @@
+{
+    "name": "hocvt/demo_crawler",
+    "description": "A demo of using spatie/crawler to crawl websites",
+    "homepage": "https://www.thik.dev",
+    "type": "library",
+    "license": "Apache License 2.0",
+    "authors": [
+        {
+            "name": "Vu Thai Hoc",
+            "email": "vuthaihoc.ttud@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MyCrawler\\Demo2\\" : "demo2/src",
+            "MyCrawler\\Demo3\\" : "demo3/src",
+            "MyCrawler\\Demo4\\" : "demo4/src",
+            "MyCrawler\\Demo5\\" : "demo5/src"
+        }
+    },
+    "require": {
+        "symfony/css-selector": "^4.2",
+        "symfony/dom-crawler": "^4.0",
+        "tightenco/collect": "^5.6",
+        "spatie/crawler": "^4.3",
+        "illuminate/database": "^5.8",
+        "illuminate/support": "^5.8"
+
+    }
+}
