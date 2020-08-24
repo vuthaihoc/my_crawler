@@ -1,5 +1,4 @@
 build
-composer.lock
 vendor
 .idea
 demo5/queue.db

@@ -15,4 +15,4 @@ Crawler::create()
 	->setCrawlQueue( new \MyCrawler\Demo5\CrawlSqliteQueue())
     ->setCrawlObserver(new Demo5Observer())
 	->setCrawlFulfilledHandlerClass( \MyCrawler\Demo5\CrawlRequestFulfilled::class )
-    ->startCrawling(new \MyCrawler\Demo5\MyUri('https://www.epubbooks.com/', 'root'));
+    ->startCrawling(new \MyCrawler\Demo5\MyUri('https://www.epubbooks.com/', ''));

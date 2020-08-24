@@ -23,7 +23,11 @@ class Demo5Observer extends CrawlObserver
 	    $dom_crawler = (new Crawler());
 	    $response->getBody()->rewind();
 	    $dom_crawler->addHtmlContent( $response->getBody()->getContents());
-	    dump("==> [" . ($url->getStep()) . "] Crawled " . $url, "\t" . $dom_crawler->filter('title')->text());
+	    try{
+            dump("==> [" . ($url->getStep()) . "] Crawled " . $url, "\t" . $dom_crawler->filter('title')->text());
+        }catch (\Exception $ex){
+	        dump( "Error " . $ex->getMessage() );
+        }
     }
 
     public function crawlFailed(

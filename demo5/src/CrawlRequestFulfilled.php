@@ -34,7 +34,7 @@ class CrawlRequestFulfilled extends CrawlRequestFulfilledBase {
 	
 	public function __invoke(ResponseInterface $response, $index)
 	{
-		$robots = new CrawlerRobots($response, $this->crawler->mustRespectRobots());
+		$robots = new CrawlerRobots($response->getHeaders(), $response->getBody()->getContents(), $this->crawler->mustRespectRobots());
 		
 		$crawlUrl = $this->crawler->getCrawlQueue()->getUrlById($index);
 		
