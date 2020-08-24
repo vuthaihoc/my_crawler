@@ -56,6 +56,12 @@ class CrawlSqliteQueue implements CrawlQueue {
         }
     }
     
+    public function resume(){
+        return Capsule::table( 'stack' )
+               ->where( 'status', self::STATUS_VISITING )
+               ->update( [ 'status' => self::STATUS_INIT ] );
+    }
+    
     public function getDemoUrls() {
         dump( Capsule::table( 'stack' )->where( 'status', self::STATUS_INIT )->take( 2 )->get(),
             Capsule::table( 'stack' )->where( 'status', self::STATUS_VISITED )->take( 2 )->get() );
