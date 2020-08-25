@@ -75,7 +75,7 @@ class CrawlSqliteQueue implements CrawlQueue {
         $inserted = Capsule::table( 'stack' )->insertGetId( [
             'step'     => $url->url->getStep(),
             'url'      => $url->url,
-            'url_hash' => md5( $url->url ),
+            'url_hash' => $this->hash( $url->url ),
             'status'   => self::STATUS_INIT,
         ] );
         
@@ -96,7 +96,7 @@ class CrawlSqliteQueue implements CrawlQueue {
                       ->when( $crawlUrl->url->getStep(), function ( $query, $step ) {
                           $query->where( 'step', $step );
                       } )
-                      ->where( 'url_hash', md5( $crawlUrl->url ) )
+                      ->where( 'url_hash', $this->hash( $crawlUrl->url ) )
                       ->exists();
     }
     
@@ -149,4 +149,10 @@ class CrawlSqliteQueue implements CrawlQueue {
                ->where( 'id', $crawlUrl->getId() )
                ->update( [ 'status' => self::STATUS_VISITED ] );
     }
+    
+    protected function hash($url){
+        $uri = preg_replace( "/^(https?)?:\/\//", "", $url);
+        return md5($uri);
+    }
+    
 }
